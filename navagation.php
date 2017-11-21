@@ -7,8 +7,32 @@
     if (!$dbc) {
         die('Could not connect: ');
     }
-
-    if (isset($_SESSION['firstName'])) 
+    if(!isset($_SESSION['userName'])){
+        echo "<header>
+                <h1>Car Trader</h1>
+                <nav><ul>
+                    <li><a href='home.php'>Home</a></li>
+                    <li><a href='login.php'>Login</a></li>
+                    <li><a href='signup.php'>Sign Up</a></li>
+                    <li><a href='aboutUs.php'>About Us</a></li>
+                </ul></nav>
+                </header>";
+    } else{
+        echo "<header>
+                <h1>Car Trader</h1>
+                <nav><ul>
+                    <li><a href='home.php'>Welcome ".$_SESSION['userName']."!</a></li>
+                    <li><a href='account.php'>Account</a></li>
+                    <li><a href='logout.php'>Logout</a></li>
+                    <li><a href='aboutUs.php'>About Us</a></li>
+                </ul></nav>
+                </header>";
+        /*echo "<li><a href='home.php'>Welcome ".$_SESSION['userName']."!</a></li>";
+        echo "<li><a href="account.php">Account</a></li>";
+        echo "<li><a href='logout.php'>Logout</a></li>";
+        echo "<li><a href='myAccount.php' class='accnavb'>My Account</a></li>";			*/
+    }
+    /*if (isset($_SESSION['firstName'])) 
     {
         echo 
         '<header>
@@ -38,7 +62,7 @@
             </nav>
         </header>';
     }
-
+*/
 
 
 ?>
