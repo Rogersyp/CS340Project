@@ -7,62 +7,46 @@
     if (!$dbc) {
         die('Could not connect: ');
     }
-    if(!isset($_SESSION['userName'])){
-        echo "<header>
-                <h1>Car Trader</h1>
-                <nav><ul>
-                    <li><a href='home.php'>Home</a></li>
-                    <li><a href='login.php'>Login</a></li>
-                    <li><a href='signup.php'>Sign Up</a></li>
-                    <li><a href='aboutUs.php'>About Us</a></li>
-                </ul></nav>
-                </header>";
-    } else{
-        echo "<header>
-                <h1>Car Trader</h1>
-                <nav><ul>
-                    <li><a href='home.php'>Welcome ".$_SESSION['userName']."!</a></li>
-                    <li><a href='account.php'>Account</a></li>
-                    <li><a href='logout.php'>Logout</a></li>
-                    <li><a href='aboutUs.php'>About Us</a></li>
-                </ul></nav>
-                </header>";
-        /*echo "<li><a href='home.php'>Welcome ".$_SESSION['userName']."!</a></li>";
-        echo "<li><a href="account.php">Account</a></li>";
-        echo "<li><a href='logout.php'>Logout</a></li>";
-        echo "<li><a href='myAccount.php' class='accnavb'>My Account</a></li>";			*/
-    }
-    /*if (isset($_SESSION['firstName'])) 
+
+    if (isset($_SESSION['firstName'])) 
     {
         echo 
         '<header>
-            <h1>Car Trader</h1>
-            <nav>
-                <ul>
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="account.php">Account</a></li>
-                    <li><a href="logout.php">Log out</a></li>
-                    <li><a href="aboutUs.php">About Us</a></li>
+            <h3>2017 Formula One Racing Database </h3> 
+            <nav id="menu" class = "gradient">
+                <ul class="horizontal">
+                     <li><a href="home.php">Home</a></li>
+                     <li><a href="constructor.php">Constructors</a></li>
+                     <li><a href="driver.php">Drivers</a></li>
+                     <li><a href="circuit.php">Circuits</a></li>
+                     <li><a href="record.php">Record</a></li>
+                     <li><a href="2017result.php">2017 Result</a></li>
+                     <li><a href="logout.php">Log out</a></li>
+                     <li><a href="account.php">Account</a></li>
                 </ul>
-            </nav>
+             </nav>
         </header>';
     }
     else 
     {
         echo 
         '<header>
-            <h1>Car Trader</h1>
-            <nav>
-                <ul>
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="login.php">Log in</a></li>
-                    <li><a href="signup.php">Sign up</a></li>
-                    <li><a href="aboutUs.php">About Us</a></li>
+            <h3>2017 Formula One Racing Database </h3> 
+            <nav id="menu" class = "gradient">
+                <ul class="horizontal">
+                     <li><a href="home.php">Home</a></li>
+                     <li><a href="constructor.php">Constructors</a></li>
+                     <li><a href="driver.php">Drivers</a></li>
+                     <li><a href="circuit.php">Circuits</a></li>
+                     <li><a href="record.php">Record</a></li>
+                     <li><a href="2017result.php">2017 Result</a></li>
+                     <li><a href="login.php">Log in</a></li>
+                     <li><a href="signup.php">Sign up</a></li>
                 </ul>
-            </nav>
+             </nav>
         </header>';
     }
-*/
+
 
 
 ?>

@@ -1,5 +1,5 @@
 <?php
 echo '<footer>
-			<p>&copy; 2014 Copyrignt Car Trader.</p>
+			<p>&copy; 2017 Copyrignt Formula One Racing Database.</p>
 	</footer>';
 ?>
