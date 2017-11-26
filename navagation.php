@@ -8,7 +8,7 @@
         die('Could not connect: ');
     }
 
-    if (isset($_SESSION['firstName'])) 
+    if (isset($_SESSION['userName'])) 
     {
         echo 
         '<header>
