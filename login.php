@@ -3,27 +3,9 @@
 	
     #session_start();
 	session_start();
-	
-	include 'connectvars.php';
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Log In</title>
-	<link rel="stylesheet" href="style.css">
-    <!-- Script for the event handlers    -->
-	<script type = "text/Javascript"  src = "signup.js" > </script>	
-</head>
-<body>
-	<!--header and navigation-->
-	<?php include('navagation.php'); 
-		if (!isset($_SESSION['userName'])) {
-			echo " <h2> Log In </h2><p> "; 
-		}
-	?>
-	<?php 	
-	if ((isset($_POST['userName'])) && (isset($_POST['password'])) ){
+    include 'connectvars.php';
+    
+    if ((isset($_POST['userName'])) && (isset($_POST['password'])) ){
 		$userName = $_POST['userName'];
 		$password = sha1($_POST['password']);
         $password = substr($password,0,20);
@@ -52,6 +34,26 @@
 		mysqli_close($dbc);
 		
 	}  
+	
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log In</title>
+	<link rel="stylesheet" href="style.css">
+    <!-- Script for the event handlers    -->
+	<script type = "text/Javascript"  src = "signup.js" > </script>	
+</head>
+<body>
+	<!--header and navigation-->
+	<?php include('navagation.php'); 
+		if (!isset($_SESSION['userName'])) {
+			echo " <h2> Log In </h2><p> "; 
+		}
+	?>
+	<?php 	
+	
 	//Taken from login.php on Canvas
 	if (isset($_SESSION['userName'])) {
 		echo " <h3> Log In Successful.</h3> <h3> Welcome ".$_SESSION['userName']."</h3>"; 
