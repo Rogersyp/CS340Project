@@ -61,6 +61,14 @@ footer{
 	position: absolute;
 	bottom: 0;
 	
+
+}
+
+.Stats{
+	width: 30%; 
+	border: 2px solid #CCCCCC; 
+	float: center; 
+	background-color:#FFFFFF;
 }
 
 .vehicle{
