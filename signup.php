@@ -58,17 +58,20 @@
 	<p>Please enter your username and desired password to sign up for an account.</p>
 	<p id="error"></p>
 	<form id="valForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-		<fieldset>
-			<legend>Registration Info</legend>
-			<label class="lables">Username:</label>
-			<input type="text" id="username" name="username" value="<?php if (!empty($username)) echo $username; ?>" /><br />
-			<label>Password:</label>
-			<input type="password" id="password1" name="password1" /><br />
-			<label>Re-Enter Password:</label>
-			<input type="password" id="password2" name="password2" /><br />
-			<label>E-mail:</label>
-			<input type="text" id="email" name="email" /><br />
-		</fieldset>
+		<table>
+			<tr>
+				<th style="text-align:left;">Username: </th> <td><input type="text" id="username" name="username" value="<?php if (!empty($userName)) echo $userName; ?>"/></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;">Password: </th> <td><input type="password" id="password1" name="password1" /></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;">Password: </th> <td><input type="password" id="password2" name="password2" /></td>
+			</tr>
+			<tr>
+				<th style="text-align:left;">Email: </th> <td><input type="text" id="email" name="email" /></td>
+			</tr>
+		</table>
 	<input type="submit" value="Sign Up" name="submit" />
 	</form>
 	<?php include('footer.php');?>
