@@ -45,12 +45,33 @@
 				
 				if (mysqli_num_rows($result_d) > 0) {
 					echo "<h3>Favorite Driver: ".$driver['favorite_driver']."</h3>";
+					$query = "SELECT * FROM Drivers";
+					$result = mysqli_query($dbc, $query);
+					while ($row = mysqli_fetch_array($result)) {
+						if($driver['favorite_driver'] == $row['d_Name']) {
+							echo "<p>Number: ".$row['d_number']."</p>";
+							echo "<p>Date of Birth: ".$row['date_of_birth']."</p>";
+							echo "<p>Nationality: ".$row['nationality']."</p>";
+							echo "<p>Team: ".$row['t_Name']."</p>";
+						}
+					}
 				} else {
 					echo "<h3>Favorite Driver: No favorite driver selected</h3>";
 				}
 				
 				if (mysqli_num_rows($result_t) > 0) {
 					echo "<h3>Favorite Team: ".$team['favorite_team']."</h3>";
+					$query = "SELECT * FROM Teams";
+					$result = mysqli_query($dbc, $query);
+					while ($row = mysqli_fetch_assoc($result)) {
+						if($team['favorite_team'] == $row['t_Name']) {
+							echo "<p>Manager: ".$row['managers']."</p>";
+							echo "<p>Owners: ".$row['owners']."</p>";
+							echo "<p>Engine Sponsors: ".$row['engine_sponsor']."</p>";
+							echo "<p>Country: ".$row['t_country']."</p>";
+							echo "<p>City: ".$row['t_city']."</p>";
+						}
+					}
 				} else {
 					echo "<h3>Favorite Team: No favorite driver selected</h3>";
 				}
