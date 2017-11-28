@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"-->
         <title>
         	F1 Record        </title>
-         <link rel="stylesheet">
+         <link rel="stylesheet" href="style.css">
     </head>
     <body>
 		<?php include('navagation.php'); ?>
@@ -28,7 +28,7 @@
 			// 	Create a pulldown menu with names of all Tables in a form
 			//   the action is to call showTable.php to diplay the contens of the table
 
-			echo "<h3>Choose one table:<h3>"; 
+			echo "<h3>Choose one Record:<h3>"; 
 			echo "<form action=\"recordinfo.php\" method=\"POST\">";
 			echo "<select name=\"myTable\" size=\"1\" Font size=\"+2\">";
 
@@ -46,6 +46,10 @@
 			echo "<div><input type=\"submit\" value=\"Submit\"></div>";
 			echo "</form>";
 			
+
+			echo"<h3>World Champions:<h3>";
+			echo "<p> paragraph <p>";
+
 			mysqli_free_result($result);
 			mysqli_close($conn);
 
