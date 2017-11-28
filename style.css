@@ -77,6 +77,10 @@ footer{
     padding: 0px 10px 5px;
 }
 
+.favDriv, .rmDriv{
+    display: inline-block;
+}
+
 .vehicle p
 {
     margin-left: 0px;

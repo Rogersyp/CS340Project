@@ -43,7 +43,11 @@
 				echo "<h3>Username: ".$_SESSION['userName']."</h3>"; 
 				
 				if (mysqli_num_rows($result_d) > 0) {
-					echo "<h3>Favorite Driver: ".$driver['favorite_driver']."</h3>";
+                    echo "<table><tr>";
+					echo "<td><h3 id='favDriv'>Favorite Driver: ".$driver['favorite_driver']."</h3></td>"; 
+                    echo "<td><form id='rmDriv' name='rmDriv' method='post' action='rmDriv.php'><input type='submit' name='Remove' value='Remove' /> 
+                          </form></td>";
+                    echo "</tr></table>";
 					$query = "SELECT * FROM Drivers";
 					$result = mysqli_query($dbc, $query);
 					while ($row = mysqli_fetch_array($result)) {
@@ -59,8 +63,12 @@
 				}
 				
 				if (mysqli_num_rows($result_t) > 0) {
-					echo "<h3>Favorite Team: ".$team['favorite_team']."</h3>";
-					$query = "SELECT * FROM Teams";
+                    echo "<table><tr>";
+					echo "<td><h3 id='favTeam'>Favorite Team: ".$team['favorite_team']."</h3></td>";
+                    echo "<td><form id='rmTeam' name='rmTeam' method='post' action='rmTeam.php'><input type='submit' name='Remove' value='Remove' /> 
+                          </form></td>";
+                    echo "</tr></table>";
+                    $query = "SELECT * FROM Teams";
 					$result = mysqli_query($dbc, $query);
 					while ($row = mysqli_fetch_assoc($result)) {
 						if($team['favorite_team'] == $row['t_Name']) {
