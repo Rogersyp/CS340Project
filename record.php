@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"-->
         <title>
         	F1 Record        </title>
-         <link rel="stylesheet">
+         <link rel="stylesheet" href="style.css">
     </head>
     <body>
 		<?php include('navagation.php'); ?>

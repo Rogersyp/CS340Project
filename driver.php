@@ -5,7 +5,7 @@
         <!--meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"-->
         <title>Drivers</title>
-         <link rel="stylesheet">
+         <link rel="stylesheet" href = "style.css">
     </head>
     <body>
 		<?php include('navagation.php'); ?>
