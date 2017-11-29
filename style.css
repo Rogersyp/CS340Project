@@ -81,6 +81,10 @@ footer{
     display: inline-block;
 }
 
+.favDriv, .addDriv{
+    display: inline-block;
+}
+
 .vehicle p
 {
     margin-left: 0px;

@@ -22,7 +22,7 @@
 				}
 			// Retrieve name of table selected	
 
-				$query = "SELECT * FROM Circuits ";
+				$query = "SELECT c_Name AS 'Circuit Name', country, city, Race_Date AS 'Race Date' FROM Circuits ";
 
 				$result = mysqli_query($conn, $query);
 				if (!$result) {
@@ -46,6 +46,7 @@
 						echo "<td>$cell</td>";	
 					echo "</tr>\n";
 				}
+				echo "</table>";
 
 				mysqli_free_result($result);
 				mysqli_close($conn);

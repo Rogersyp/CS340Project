@@ -42,14 +42,15 @@
 			<?php 
 				echo "<h3>Username: ".$_SESSION['userName']."</h3>"; 
 				
+				$query = "SELECT * FROM Drivers";
+				$result = mysqli_query($dbc, $query);
+				
 				if (mysqli_num_rows($result_d) > 0) {
                     echo "<table><tr>";
 					echo "<td><h3 id='favDriv'>Favorite Driver: ".$driver['favorite_driver']."</h3></td>"; 
-                    echo "<td><form id='rmDriv' name='rmDriv' method='post' action='rmDriv.php'><input type='submit' name='Remove' value='Remove' /> 
+                    echo "<td><form id='rmDriv' name='rmDriv' method='post' action='rmDriv.php'><input type='submit' name='Remove' value='Remove' />
                           </form></td>";
                     echo "</tr></table>";
-					$query = "SELECT * FROM Drivers";
-					$result = mysqli_query($dbc, $query);
 					while ($row = mysqli_fetch_array($result)) {
 						if($driver['favorite_driver'] == $row['d_Name']) {
 							echo "<p>Number: ".$row['d_number']."</p>";
@@ -60,7 +61,19 @@
 					}
 				} else {
 					echo "<h3>Favorite Driver: No favorite driver selected</h3>";
+					echo "<form id='addDriver' name='addDriver' method='post' action='addDriver.php'>"; 
+					echo "<select name='fav_Driver'>";
+					while ($row = mysqli_fetch_array($result)) {
+							echo "<option value='".$row['d_Name']."'>".$row['d_Name']."</option>";
+					}
+					echo "</select>";
+					echo "<input type='submit' name='add_Driver' value='Add Driver' />";
+					echo "</form>";
 				}
+				
+			
+				$query = "SELECT * FROM Teams";
+				$result = mysqli_query($dbc, $query);
 				
 				if (mysqli_num_rows($result_t) > 0) {
                     echo "<table><tr>";
@@ -68,8 +81,6 @@
                     echo "<td><form id='rmTeam' name='rmTeam' method='post' action='rmTeam.php'><input type='submit' name='Remove' value='Remove' /> 
                           </form></td>";
                     echo "</tr></table>";
-                    $query = "SELECT * FROM Teams";
-					$result = mysqli_query($dbc, $query);
 					while ($row = mysqli_fetch_assoc($result)) {
 						if($team['favorite_team'] == $row['t_Name']) {
 							echo "<p>Manager: ".$row['managers']."</p>";
@@ -81,6 +92,14 @@
 					}
 				} else {
 					echo "<h3>Favorite Team: No favorite driver selected</h3>";
+					echo "<form id='addTeam' name='addTeam' method='post' action='addTeam.php'>"; 
+					echo "<select name='fav_Team'>";
+					while ($row = mysqli_fetch_array($result)) {
+							echo "<option value='".$row['t_Name']."'>".$row['t_Name']."</option>";
+					}
+					echo "</select>";
+					echo "<input type='submit' name='add_Team' value='Add Team' />";
+					echo "</form>";
 				}
 			?>
 		</section>
