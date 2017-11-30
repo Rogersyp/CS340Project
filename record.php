@@ -48,7 +48,19 @@
 			
 
 			echo"<h3>World Champions:<h3>";
-			echo "<p> paragraph <p>";
+			echo "<p> The driver who aquires the most points in a season, in other words, the winner of the season <p>";
+
+			echo"<h3>Race wins:<h3>";
+			echo "<p> The winner of a single F1 race <p>";
+
+			echo"<h3>Pole Position:<h3>";
+			echo "<p> The first place on the starting grid, as awarded to the driver who recorded the fastest lap time in qualifying.<p>";
+
+			echo"<h3>Podium:<h3>";
+			echo "<p> Finish a F1 Race in Top 3 <p>";
+
+			echo"<h3>Fastest Lap Time:<h3>";
+			echo "<p> Set a fastest lap time in race session<p>";
 
 			mysqli_free_result($result);
 			mysqli_close($conn);

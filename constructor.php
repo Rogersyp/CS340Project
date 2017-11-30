@@ -30,9 +30,8 @@
     </head>
     <body>
 		<?php include('navagation.php'); ?>
-		<h3>Constructors</h3>
+		<h1>Constructors</h1>
 		<section id="content">
-			<h1>Constructor's page</h1>
 			<?php 
 				include 'connectvarsEECS.php'; 
 	
@@ -54,6 +53,7 @@
                     <table class='answer'>";
                         echo "<tr>";
                             echo "<td><table>";
+                            echo "<img src='data:image/jpeg;base64,".base64_encode($rows['team_img'])."'/ style='width:350px; height=350px;'>";
                             echo "<tr>";
                                 echo "<td><strong>Name:</strong></td>";
                                 echo "<td>".$rows['t_Name']."</td>";
@@ -67,7 +67,7 @@
                                 <td>".$rows['owners']."</td>
                             </tr>";
                             echo "<tr>
-                                <td><strong>Sponsor:</strong></td>
+                                <td><strong>Engine Sponsor:</strong></td>
                                 <td>".$rows['engine_sponsor']."</td>
                             </tr>";
                             echo "<tr>

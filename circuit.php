@@ -10,9 +10,8 @@
     </head>
     <body>
 		<?php include('navagation.php'); ?>
-		<h3>Circuits</h3>
+		<h1>Circuits</h1>
 		<section id="content">
-			<h1>Circuit page</h1>
 			<?php 
 				include 'connectvarsEECS.php'; 
 	

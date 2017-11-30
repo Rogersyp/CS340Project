@@ -20,7 +20,6 @@
                      <li><a href="driver.php">Drivers</a></li>
                      <li><a href="circuit.php">Circuits</a></li>
                      <li><a href="record.php">Record</a></li>
-                     <li><a href="2017result.php">2017 Result</a></li>
                      <li><a href="logout.php">Log out</a></li>
                      <li><a href="account.php">Account</a></li>
                 </ul>
@@ -39,7 +38,6 @@
                      <li><a href="driver.php">Drivers</a></li>
                      <li><a href="circuit.php">Circuits</a></li>
                      <li><a href="record.php">Record</a></li>
-                     <li><a href="2017result.php">2017 Result</a></li>
                      <li><a href="login.php">Log in</a></li>
                      <li><a href="signup.php">Sign up</a></li>
                 </ul>

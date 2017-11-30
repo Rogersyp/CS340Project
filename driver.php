@@ -9,7 +9,7 @@
     </head>
     <body>
 		<?php include('navagation.php'); ?>
-		<h3>Drivers</h3>
+		<h1>Drivers</h1>
 		<section id="content">
 			<?php 
 				include 'connectvarsEECS.php'; 
@@ -32,7 +32,7 @@
                     <table class='answer'>";
                         echo "<tr>";
                             echo "<td><table>";
-							echo "<img src='data:image/jpeg;base64,".base64_encode($rows['driver_img'])."' />";
+							echo "<img src='data:image/jpeg;base64,".base64_encode($rows['driver_img'])."'/ style='width:350px; height=350px;'>";
                             echo "<tr>";
                                 echo "<td><strong>Driver Number:</strong></td>";
                                 echo "<td>".$rows['d_number']."</td>";

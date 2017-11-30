@@ -66,7 +66,7 @@
 				<th style="text-align:left;">Password: </th> <td><input type="password" id="password1" name="password1" /></td>
 			</tr>
 			<tr>
-				<th style="text-align:left;">Password: </th> <td><input type="password" id="password2" name="password2" /></td>
+				<th style="text-align:left;">Re-enter Password: </th> <td><input type="password" id="password2" name="password2" /></td>
 			</tr>
 			<tr>
 				<th style="text-align:left;">Email: </th> <td><input type="text" id="email" name="email" /></td>
