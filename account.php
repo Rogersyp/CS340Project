@@ -15,11 +15,11 @@
 	
 		$query = "SELECT favorite_driver FROM USER_favorite_driver WHERE username='$userName'";
 		$result_d = mysqli_query($dbc, $query);
-		$driver = mysqli_fetch_array($result_d);
+		//$driver = mysqli_fetch_assoc($result_d);
 		
 		$query = "SELECT favorite_team FROM USER_favorite_team WHERE username='$userName'";
 		$result_t = mysqli_query($dbc, $query);
-		$team = mysqli_fetch_array($result_t);
+		$team = mysqli_fetch_assoc($result_t);
 		
 		//mysqli_free_result($result);
 		//mysqli_close($dbc);
@@ -42,23 +42,38 @@
 			<?php 
 				echo "<h3>Username: ".$_SESSION['userName']."</h3>"; 
 				
-				$query = "SELECT * FROM Drivers";
-				$result = mysqli_query($dbc, $query);
-				
+				$query = "SELECT * FROM USER_favorite_driver, Drivers WHERE USER_favorite_driver.username='$userName' AND USER_favorite_driver.favorite_driver = Drivers.d_Name";
+				//$query = "SELECT * FROM Drivers";
+                $result = mysqli_query($dbc, $query);
+                $driversArr = [];
+                
 				if (mysqli_num_rows($result_d) > 0) {
-                    echo "<table><tr>";
-					echo "<td><h3 id='favDriv'>Favorite Driver: ".$driver['favorite_driver']."</h3></td>"; 
-                    echo "<td><form id='rmDriv' name='rmDriv' method='post' action='rmDriv.php'><input type='submit' name='Remove' value='Remove' />
-                          </form></td>";
-                    echo "</tr></table>";
+                    $counter=0;
+                    echo "<form id='rmDriv' name='rmDriv' method='post' action='rmDriv.php'>";
+                        while($row = mysqli_fetch_array($result)){
+                                $driversArr[] = $row['d_Name'];
+                                echo "<table><tr>";
+                                echo "<td><input type='checkbox' name='driver[]' id='driver' value='".$driversArr[$counter]."'></td><td><h3 id='favDriv'>Favorite Driver: ".$row['d_Name']."</h3></td>"; 
+                                echo "</tr></table>";
+                                echo "<p>Number: ".$row['d_number']."</p>";
+                                echo "<p>Date of Birth: ".$row['date_of_birth']."</p>";
+                                echo "<p>Nationality: ".$row['nationality']."</p>";
+                                echo "<p>Team: ".$row['t_Name']."</p>";
+                                $counter=$counter+1;
+                        }
+                    echo "<input type='submit' name='Remove' value='Remove' /></form>";
+                    mysqli_free_result($result);
+                    
+                    $query = "SELECT * FROM Drivers";
+                    $result = mysqli_query($dbc, $query);
+                    echo "<form id='addDriver' name='addDriver' method='post' action='addDriver.php'>"; 
+					echo "<select name='fav_Driver'>";
 					while ($row = mysqli_fetch_array($result)) {
-						if($driver['favorite_driver'] == $row['d_Name']) {
-							echo "<p>Number: ".$row['d_number']."</p>";
-							echo "<p>Date of Birth: ".$row['date_of_birth']."</p>";
-							echo "<p>Nationality: ".$row['nationality']."</p>";
-							echo "<p>Team: ".$row['t_Name']."</p>";
-						}
+							echo "<option value='".$row['d_Name']."'>".$row['d_Name']."</option>";
 					}
+					echo "</select>";
+					echo "<input type='submit' name='add_Driver' value='Add Driver' />";
+					echo "</form>";
 				} else {
 					echo "<h3>Favorite Driver: No favorite driver selected</h3>";
 					echo "<form id='addDriver' name='addDriver' method='post' action='addDriver.php'>"; 
@@ -72,29 +87,44 @@
 				}
 				
 			
-				$query = "SELECT * FROM Teams";
-				$result = mysqli_query($dbc, $query);
-				
+				$query = "SELECT * FROM USER_favorite_team, Teams WHERE USER_favorite_team.username='$userName' AND USER_favorite_team.favorite_team = Teams.t_Name";
+				$result_team = mysqli_query($dbc, $query);
+				$teamsArr = [];
+                
 				if (mysqli_num_rows($result_t) > 0) {
-                    echo "<table><tr>";
-					echo "<td><h3 id='favTeam'>Favorite Team: ".$team['favorite_team']."</h3></td>";
-                    echo "<td><form id='rmTeam' name='rmTeam' method='post' action='rmTeam.php'><input type='submit' name='Remove' value='Remove' /> 
-                          </form></td>";
-                    echo "</tr></table>";
-					while ($row = mysqli_fetch_assoc($result)) {
-						if($team['favorite_team'] == $row['t_Name']) {
-							echo "<p>Manager: ".$row['managers']."</p>";
-							echo "<p>Owners: ".$row['owners']."</p>";
-							echo "<p>Engine Sponsors: ".$row['engine_sponsor']."</p>";
-							echo "<p>Country: ".$row['t_country']."</p>";
-							echo "<p>City: ".$row['t_city']."</p>";
-						}
+                    $counter=0;
+                    echo "<form id='rmTeam' name='rmTeam' method='post' action='rmTeam.php'>";
+
+                        while ($row = mysqli_fetch_assoc($result_team)) {
+                                $teamsArr[] = $row['t_Name'];
+                                echo "<table><tr>";
+                                echo "<td><input type='checkbox' name='team[]' id='team' value='".$teamsArr[$counter]."'></td><td><h3 id='favTeam'>Favorite Team: ".$row['t_Name']."</h3></td>";
+                                echo "</tr></table>";
+                                echo "<p>Manager: ".$row['managers']."</p>";
+                                echo "<p>Owners: ".$row['owners']."</p>";
+                                echo "<p>Engine Sponsors: ".$row['engine_sponsor']."</p>";
+                                echo "<p>Country: ".$row['t_country']."</p>";
+                                echo "<p>City: ".$row['t_city']."</p>";
+                                $counter=$counter+1;
 					}
+                    echo "<input type='submit' name='Remove' value='Remove' /></form>";
+                    mysqli_free_result($result_team);
+
+                    $query = "SELECT * FROM Teams";
+                    $result_team = mysqli_query($dbc, $query);
+                    echo "<form id='addTeam' name='addTeam' method='post' action='addTeam.php'>"; 
+					echo "<select name='fav_Team'>";
+					while ($row = mysqli_fetch_array($result_team)) {
+							echo "<option value='".$row['t_Name']."'>".$row['t_Name']."</option>";
+					}
+					echo "</select>";
+					echo "<input type='submit' name='add_Team' value='Add Team' />";
+					echo "</form>";
 				} else {
 					echo "<h3>Favorite Team: No favorite driver selected</h3>";
 					echo "<form id='addTeam' name='addTeam' method='post' action='addTeam.php'>"; 
 					echo "<select name='fav_Team'>";
-					while ($row = mysqli_fetch_array($result)) {
+					while ($row = mysqli_fetch_array($result_team)) {
 							echo "<option value='".$row['t_Name']."'>".$row['t_Name']."</option>";
 					}
 					echo "</select>";
@@ -106,7 +136,7 @@
 		<?php 
 			mysqli_free_result($result_d);
 			mysqli_free_result($result_t);
-			mysqli_close($dbc);
+            mysqli_close($dbc);
 			include('footer.php');
 		?>
     </body>
