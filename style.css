@@ -52,16 +52,13 @@ nav a.active
 }
 
 footer{
-	background-color:#808080;
-	color: #808080;
+	background-color:#1C1C1C;
+	color: #FFFFFF;
 	font-size: 10pt;
 	padding: 2px;
 	text-align: center;
 	margin-top: 20px;
-	position: absolute;
-	bottom: 0;
 	
-
 }
 
 .vehicle{
