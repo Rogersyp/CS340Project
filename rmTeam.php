@@ -4,7 +4,7 @@
     session_start();
     $userName = $_SESSION['userName'];
     $favTeam = $_POST['team'];
-    
+     
     $numero = count($favTeam);
     echo "You selected ".$numero." teams.";
     

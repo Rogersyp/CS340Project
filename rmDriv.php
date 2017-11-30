@@ -7,7 +7,7 @@
 
     $numero = count($favDriver);
     echo "You selected ".$numero." drivers.";
-    
+     
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 	$table = "USER_favorite_driver";
 
